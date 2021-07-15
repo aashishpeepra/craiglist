@@ -1,0 +1,30 @@
+.rightBar {
+    background: #f4f4f4;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    min-width: 10em;
+    font-size: 70%;
+    min-height: 810px;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+
+.rightBar a {
+    display: block;
+}
+
+.rightBar a:hover{
+    text-decoration: underline;
+}
+
+.nearby {
+    color: #00E;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+    margin: 0 2px;
+}

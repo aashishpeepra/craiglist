@@ -1,0 +1,42 @@
+.leftBar {
+    background: #f4f4f4;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    min-width: 10em;
+    font-size: smaller;
+    margin: 0;
+    min-height: 820px;
+    text-align: center;
+    width: 100%;
+}
+
+.logo a {
+    font-size: 235%;
+    line-height: 135%;
+    font-weight: 500;
+    font-family: "Times New Roman",Times,serif;
+    width: 100%;
+}
+
+.createPosting {
+    margin: 17px 0;
+}
+
+.leftBar iframe {
+    margin: 10px auto;
+}
+
+.leftSearch {
+    font-size: 18px;
+    width: 75%;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0;
+    padding: 4px;
+}
+
+.leftBar a:hover{
+    text-decoration: underline;
+}

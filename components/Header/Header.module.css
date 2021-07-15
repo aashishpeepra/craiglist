@@ -1,0 +1,16 @@
+.cityHeader {
+    background-color: #eee;
+    border-top: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+    clear: none;
+    min-height: 2.5em;
+    font-weight: normal;
+    text-align: center;
+}
+
+.cityName {
+    display: inline-block;
+    font-family: "Times New Roman",Times,serif;
+    font-size: 1.5em;
+    line-height: 1.7em;
+}

@@ -1,0 +1,48 @@
+.table {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.tableHeading {
+    color: #00E;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+    margin: 0 2px;
+}
+
+
+.smaller a {
+    display: block;
+    text-align: start;
+    padding: 0 0 1px 0;
+    border-bottom: 1px solid #eaeaea;
+    text-decoration: none;
+    font-size: 68%;
+}
+
+.tableContent {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableContentFlex {
+    width: 100%;
+}
+
+.tableCol a {
+    display: block;
+    text-align: start;
+    padding: 0 0 1px 0;
+    border-bottom: 1px solid #eaeaea;
+    text-decoration: none;
+    font-size: small;
+}
+
+.tableCol a:hover, .smaller a:hover{
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+}
