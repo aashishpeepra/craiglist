@@ -1,0 +1,12 @@
+.titleContainer {
+    display: flex;
+    height: 97vh;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 8px;
+}

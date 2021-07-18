@@ -1,0 +1,50 @@
+.title {
+    font-size: 1.3em;
+    color: purple;
+}
+
+.linkDropDown {
+    margin-left: 0.5rem;
+}
+
+.marginY {
+    margin: 14px 0;
+}
+
+.capsHeading {
+    font-size: x-small;
+    margin-left: 0.5rem;
+}
+
+.flexInput {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flexSelect {
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+.new {
+    font-size: .7em;
+    line-height: normal;
+    vertical-align: super;
+  }
+
+.flexInput input , 
+.flexInput button,
+.flexInput a{
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+}
+
+.flexInput a:hover{
+    text-decoration: underline;
+  }
+
+.flexInput button{
+    padding: 5px;
+    color: #00e;
+    font-size: 14px;
+  }

@@ -15,18 +15,24 @@ const getRow = (col, row, list) => {
     }
 }
 
-const Table = ({ heading, cols, rows, list}) => {
+const Table = ({ heading, cols, rows, list }) => {
     return (
         <div className={styles.table}>
-            <div className={styles.tableHeading}><Link href="/" >{heading}</Link></div>
-            <div className={ heading !== 'housing' ? styles.tableContent : styles.tableContentFlex}>
+            <div className={styles.tableHeading}><Link href={`/sections/${heading.replace(/[ ]/g,'-')}`} >{heading}</Link></div>
+            <div className={heading !== 'housing' ? styles.tableContent : styles.tableContentFlex}>
                 {[...Array(cols)].map((e, i) => {
                     let start = rows * i;
                     let limit = start + rows;
                     let rowList = list.slice(start, limit)
                     return (
-                        <div key={i} className={ heading !== 'discussion forums' ? styles.tableCol : styles.smaller}>
-                            {rowList.map((value, index) => <Link key={index} href="/">{value}</Link>)}
+                        <div key={i} className={heading !== 'discussion forums' ? styles.tableCol : styles.smaller}>
+                            {rowList.map((value, index) => {
+                                let myLink = value.replace(/[ &+\/\\]/g, '-');
+                                return (
+                                    <Link key={index} href={`/sections/${heading.replace(/[ ]/g,'-')}/${myLink}`}>{value}</Link>
+                                );
+                            })
+                            }
                         </div>
                     )
                 })}

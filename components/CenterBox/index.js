@@ -15,7 +15,7 @@ const community = [
     'musicians',
     'pets',
     'politics',
-    'rants & raves',
+    'rants&raves',
     'rideshare',
     'volunteers'
 ]
@@ -97,7 +97,7 @@ const discussion = [
 ]
 const housing = [
     'apts/housing',
-    ' housing swap',
+    'housing swap',
     'housing wanted',
     'office/commercial',
     'parking/storage',

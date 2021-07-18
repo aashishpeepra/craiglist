@@ -1,0 +1,38 @@
+.heading {
+    display: flex;
+    color: #00e;
+    cursor: pointer;
+}
+
+.linkHeading:hover {
+    text-decoration: underline;
+}
+
+.linkHeading {
+    font-size: smaller;
+}
+
+.showMenu {
+    display: block;
+}
+
+.hideMenu {
+    display: none;
+}
+
+.DropDown a {
+    text-decoration: none;
+    font-size: smaller;
+}
+
+.DropDown a:hover {
+    text-decoration: underline;
+}
+
+.valueSize {
+    font-size: smaller;
+}
+
+.valueSize input {
+    margin-right: 0.25rem;
+}
