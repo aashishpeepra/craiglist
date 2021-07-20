@@ -1,0 +1,38 @@
+.querybox {
+    width: 100%;
+    display: flex;
+}
+
+.searchBox {
+    flex-grow: 1;
+    font-size: 1.1em;
+    height: 2em;
+    line-height: 1.45em;
+    min-width: 7em;
+    padding: 0 3px 0 8px;
+    width: 70%;
+    max-width: 70%;
+    border: 1px solid ;
+
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.searchIcon {
+    display: inline-block;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 2em;
+    margin: 0 10px;
+}
+
+.searchIcon img {
+    width: 60%;
+    display: flex;
+    margin: auto;
+    margin-top: 25%;
+}

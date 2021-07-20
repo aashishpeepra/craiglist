@@ -7,17 +7,19 @@ import Resumes from '../../../components/SideMenus/Resumes'
 import Sale from '../../../components/SideMenus/Sale'
 import Jobs from '../../../components/SideMenus/Jobs'
 import Gigs from '../../../components/SideMenus/Gigs'
+import SearchBox from '../../../components/SearchBox'
+import Pagination from '../../../components/Pagination'
 import Link from 'next/link'
 
 const getSideBar = (value) => {
-  if(value === 'community') return <Community />
-  if(value === 'services') return <Services />  
-  if(value === 'discussion-forums') return 'Comming soon'
-  if(value === 'housing') return <Housing />
-  if(value === 'for-sale') return <Sale />
-  if(value === 'jobs') return <Jobs />
-  if(value === 'gigs') return <Gigs />
-  if(value === 'resumes') return <Resumes />
+  if (value === 'community') return <Community />
+  if (value === 'services') return <Services />
+  if (value === 'discussion-forums') return 'Comming soon'
+  if (value === 'housing') return <Housing />
+  if (value === 'for-sale') return <Sale />
+  if (value === 'jobs') return <Jobs />
+  if (value === 'gigs') return <Gigs />
+  if (value === 'resumes') return <Resumes />
 }
 
 const Post = () => {
@@ -27,7 +29,10 @@ const Post = () => {
   return (
     <div className={styles.titleContainer}>
       <div className={styles.sidebar}>{getSideBar(title)}</div>
-      <div className={styles.titleMain}></div>
+      <div className={styles.titleMain}>
+        <SearchBox />
+        <Pagination />
+      </div>
     </div>
   )
 }

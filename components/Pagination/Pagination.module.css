@@ -1,0 +1,94 @@
+.paginationBox {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: 80%;
+}
+
+.displayMode {
+
+}
+
+.dropdownSingle {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 6.5em;
+    
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.dropdownMenu {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 6.5em;
+}
+
+.dropdown {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 1.75em;
+    padding-left: 5px;
+}
+
+.dropdown img {
+    height: 60%;
+    margin: 5% ;
+    margin-right: 5px;
+}
+
+.dropdownSingle span {
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+    transform: scale(0.8);
+}
+
+.dropdown:hover , .dropdownSingle:hover{
+    background-color: #ccc;
+}
+
+.pagination {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 310px;
+    height: 1.75em;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination div {
+    height: 100%;
+}
+
+.first, .prev, .count {
+    border-right: 1px solid #ddd;
+}
+
+.first, .prev, .count, .next {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.active {
+    color: #00e;
+    cursor: pointer;
+}
+
+.active:hover {
+    text-decoration: underline;
+}
+
+.disable {
+    color: #ddd;
+}

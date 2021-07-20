@@ -10,3 +10,8 @@
     overflow-y: scroll;
     padding: 8px;
 }
+
+.titleMain {
+    width: calc(100vw - 200px);
+    padding: 10px;
+}
