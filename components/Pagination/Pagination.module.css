@@ -26,15 +26,19 @@
     -moz-border-radius: 3px;
     border-radius: 3px;
     width: 6.5em;
+
+    position: absolute;
+    z-index: 9999;
 }
 
 .dropdown {
+    
+    background-color: #f5f5f5;
     cursor: pointer;
     width: 100%;
     display: flex;
     align-items: center;
     height: 1.75em;
-    padding-left: 5px;
 }
 
 .dropdown img {

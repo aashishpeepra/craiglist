@@ -9,6 +9,9 @@ import Jobs from '../../../components/SideMenus/Jobs'
 import Gigs from '../../../components/SideMenus/Gigs'
 import SearchBox from '../../../components/SearchBox'
 import Pagination from '../../../components/Pagination'
+import ListMode from '../../../components/Modes/ListMode'
+import GalleryMode from '../../../components/Modes/GalleryMode'
+import ThumbMode from '../../../components/Modes/ThumbMode'
 import Link from 'next/link'
 
 const getSideBar = (value) => {
@@ -32,6 +35,58 @@ const Post = () => {
       <div className={styles.titleMain}>
         <SearchBox />
         <Pagination />
+        <div>
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+            <ListMode />
+          </div>
+
+        {/* <div className={styles.Maincontent}>
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+          <GalleryMode />
+        </div> */}
+
+        {/* <div className={styles.contentbox}>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+          <ThumbMode/>
+        </div> */}
       </div>
     </div>
   )

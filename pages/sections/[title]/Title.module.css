@@ -14,4 +14,19 @@
 .titleMain {
     width: calc(100vw - 200px);
     padding: 10px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 8px;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.Maincontent {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.contentbox {
+    margin-left: 10px;
 }
