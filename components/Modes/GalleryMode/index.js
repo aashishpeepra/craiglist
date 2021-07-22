@@ -1,17 +1,17 @@
 import styles from '../Mode.module.css'
 
-const GalleryMode = () => {
+const GalleryMode = ({ fav, date, title, price, place, pic, picUrl }) => {
     return (
         <div className={styles.gallery}>
             <div className={styles.galleryImg}>
-                <img src="https://source.unsplash.com/featured/?{colors}" />
+                {pic ? <img src={picUrl} /> : <img src={picUrl} />}
             </div>
             <div className={styles.list}>
-                <div className={styles.star}>☆</div>
-                <div className={styles.date}>June 25</div>
-                <div className={styles.title}>Big Share House near ig Share House nearig Share House near SSC</div>
-                <div className={styles.price}>$987</div>
-                <div className={styles.place}>(West Seattle)</div>
+                <div className={styles.star}>{fav ? '★' : '☆'}</div>
+                <div className={styles.date}>{date}</div>
+                <div className={styles.title}>{title}</div>
+                <div className={styles.price}>${price}</div>
+                <div className={styles.place}>({place})</div>
                 <div className={styles.bin}>🗑</div>
             </div>
         </div>

@@ -8,6 +8,8 @@ import Sale from '../../../components/SideMenus/Sale'
 import Jobs from '../../../components/SideMenus/Jobs'
 import Gigs from '../../../components/SideMenus/Gigs'
 import SearchBox from '../../../components/SearchBox'
+import ModeDropDown from '../../../components/ModeDropDown'
+import FilterDropDown from '../../../components/FilterDropDown'
 import Pagination from '../../../components/Pagination'
 import ListMode from '../../../components/Modes/ListMode'
 import GalleryMode from '../../../components/Modes/GalleryMode'
@@ -25,6 +27,117 @@ const getSideBar = (value) => {
   if (value === 'resumes') return <Resumes />
 }
 
+const data = [
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{colors}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{house}"
+  },
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{smile}"
+  },
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{flowers}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{people}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{place}"
+  },
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{landscape}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{future}"
+  },
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{food}"
+  },
+  {
+    "fav": false,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{nature}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{music}"
+  },
+  {
+    "fav": true,
+    "date": "Jun 25",
+    "title": "Big Share House near SSC",
+    "price": "987",
+    "place": "West Seattle",
+    "pic": true,
+    "picUrl": "https://source.unsplash.com/featured/?{japan}"
+  }
+]
+
 const Post = () => {
   const router = useRouter()
   const { title } = router.query
@@ -34,59 +147,23 @@ const Post = () => {
       <div className={styles.sidebar}>{getSideBar(title)}</div>
       <div className={styles.titleMain}>
         <SearchBox />
-        <Pagination />
-        <div>
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-            <ListMode />
-          </div>
-
-        {/* <div className={styles.Maincontent}>
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
-          <GalleryMode />
+        <div className={styles.paginationBox} >
+          <ModeDropDown />
+          <Pagination />
+          <FilterDropDown />
+        </div>
+        {/* <div>
+          {data.map((each, index) => <ListMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} />)}
         </div> */}
+
+        <div className={styles.Maincontent}>
+          {data.map((each, index) => <GalleryMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+        </div>
 
         {/* <div className={styles.contentbox}>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
-          <ThumbMode/>
+          {data.map((each, index) => <ThumbMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
         </div> */}
+
       </div>
     </div>
   )
