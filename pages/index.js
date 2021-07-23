@@ -3,16 +3,25 @@ import LeftBox from '../components/LeftBox';
 import RightBox from '../components/RightBox';
 import Header from '../components/Header';
 import CenterBox from '../components/CenterBox';
+import SearchBox from '../components/SearchBox';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <div className={styles.homeWrapper}>
-      <section className={styles.homePageContainer}>
+      <section className={styles.desktopPageContainer}>
         <div className={styles.left}><LeftBox /></div>
-        <div className={styles.center}><Header /><CenterBox/></div>
+        <div className={styles.center}><Header /><CenterBox /></div>
         <div className={styles.right}><RightBox /></div>
       </section>
+
+      <section className={styles.mobilePageContainer}>
+        <Header />
+        <SearchBox />
+        <CenterBox />
+        <RightBox />
+      </section>
+
       <footer>
         <ul className={styles.clfooter}>
           <li>© 2021 <span className={styles.desktop}>craigslist</span><span className={styles.mobile}>CL</span></li>

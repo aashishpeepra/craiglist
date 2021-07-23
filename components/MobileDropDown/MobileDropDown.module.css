@@ -1,0 +1,23 @@
+.Bar a {
+    display: block;
+    padding: 4px 8px;
+}
+
+.Bar a:hover{
+    text-decoration: underline;
+}
+
+.head {
+    color: #00E;
+    padding: 6px 8px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+    font-size: 1.25em;
+    text-align: start !important;
+}
+
+.Bar {
+    width: 100%;
+    margin: 4px 0;
+}

@@ -2,7 +2,11 @@
   min-height: 100%;
 }
 
-.homePageContainer{
+.mobilePageContainer {
+  display: none;
+}
+
+.desktopPageContainer{
   margin: 0 auto;
   padding: 16px 0 1em 0;
   width: 980px;
@@ -68,4 +72,23 @@ footer .clfooter li {
 
 .right {
   width: 13%;
+}
+
+@media screen and (max-width: 480px) {
+  .desktopPageContainer {
+    display: none;
+  }
+
+  footer .clfooter li {
+    font-size: x-small;
+  }
+
+  .mobilePageContainer {
+    display: block;
+  }
+
+}
+
+.mobilePageContainer {
+  width: 100%;
 }
