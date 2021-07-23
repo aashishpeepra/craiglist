@@ -13,7 +13,7 @@ export default function Home() {
         <div className={styles.center}><Header /><CenterBox/></div>
         <div className={styles.right}><RightBox /></div>
       </section>
-      <footer>
+      <footer className={styles.footer}>
         <ul className={styles.clfooter}>
           <li>© 2021 <span className={styles.desktop}>craigslist</span><span className={styles.mobile}>CL</span></li>
           <li><Link href="/">help</Link></li>

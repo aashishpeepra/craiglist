@@ -1,0 +1,40 @@
+.fieldContainer fieldset{
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.fieldContainer .green{
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 1.25rem 0rem 1.25rem 0rem;
+    color:green;
+}
+.fieldBox {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+.fieldBox label{
+    margin: 0.25rem 0rem;
+}
+.fieldBox label input{
+    margin-right: 0.5rem;
+}
+.note{
+    margin-top: 2rem;
+}
+.note p{
+    font-weight: 600;
+    display: inline-block;
+}
+.note span{
+    margin-left: 0.25rem;
+}
+.fieldContainer_button{
+    margin: 1.25rem 0rem;
+}
+
+.post{
+    max-width: 998px;
+    margin: auto;
+    padding:5% 10%;
+}

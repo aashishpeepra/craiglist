@@ -141,7 +141,6 @@ const data = [
 const Post = () => {
   const router = useRouter()
   const { title } = router.query
-
   return (
     <div className={styles.titleContainer}>
       <div className={styles.sidebar}>{getSideBar(title)}</div>
@@ -157,10 +156,10 @@ const Post = () => {
         </div> */}
 
         <div className={styles.Maincontent}>
-          {data.map((each, index) => <GalleryMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+          {data.map((each, index) => <GalleryMode section={"jobs"} subsection={""} id="1234567" key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
         </div>
-
-        {/* <div className={styles.contentbox}>
+{/* 
+        <div className={styles.contentbox}>
           {data.map((each, index) => <ThumbMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
         </div> */}
 

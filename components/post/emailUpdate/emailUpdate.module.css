@@ -1,0 +1,20 @@
+.sect_bg{
+    background-color: #EEEEEE;
+    margin: 2rem 0rem;
+    padding:1rem 0.5rem;
+}
+.sect_bg h4{
+    font-weight: bold;
+    display: inline-block;
+    line-height: 145%;
+}
+.sect_bg_email{
+    color:#309630;
+    font-weight: bold;
+}
+.sect_bg span{
+    margin-right: 0.25rem;
+}
+.sect_bg br{
+    height:0rem;
+}

@@ -9,8 +9,14 @@
   min-height: 100%;
   display: flex;
 }
-
+.footer{
+  
+  bottom:0;
+  position: absolute;
+  width: 99vw;
+}
 .clfooter {
+  
   list-style: none;
 }
 
