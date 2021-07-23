@@ -15,6 +15,7 @@ import ListMode from '../../../components/Modes/ListMode'
 import GalleryMode from '../../../components/Modes/GalleryMode'
 import ThumbMode from '../../../components/Modes/ThumbMode'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const getSideBar = (value) => {
   if (value === 'community') return <Community />
@@ -142,28 +143,53 @@ const Post = () => {
   const router = useRouter()
   const { title } = router.query
 
+  const [openFilter, setOpenFilter] = useState(false)
+
   return (
     <div className={styles.titleContainer}>
-      <div className={styles.sidebar}>{getSideBar(title)}</div>
-      <div className={styles.titleMain}>
-        <SearchBox />
-        <div className={styles.paginationBox} >
-          <ModeDropDown />
-          <Pagination />
-          <FilterDropDown />
-        </div>
-        {/* <div>
+      <div className={styles.desktopView}>
+        <div className={styles.sidebar}>{getSideBar(title)}</div>
+        <div className={styles.titleMain}>
+          <SearchBox />
+          <div className={styles.paginationBox} >
+            <ModeDropDown />
+            <Pagination />
+            <FilterDropDown />
+          </div>
+          {/* <div>
           {data.map((each, index) => <ListMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} />)}
         </div> */}
 
-        <div className={styles.Maincontent}>
-          {data.map((each, index) => <GalleryMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
-        </div>
+          <div className={styles.Maincontent}>
+            {data.map((each, index) => <GalleryMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+          </div>
 
-        {/* <div className={styles.contentbox}>
+          {/* <div className={styles.contentbox}>
           {data.map((each, index) => <ThumbMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
         </div> */}
 
+        </div>
+      </div>
+      <div className={styles.mobileView}>
+        <SearchBox />
+        <div className={ openFilter ? styles.optionMenu : styles.optionsNotOpen}>
+          <div onClick={() => setOpenFilter(!openFilter)} className={styles.optionHeading}>⚙️ options</div>
+          {openFilter &&
+            <div className={styles.options}>
+              {getSideBar(title)}
+            </div>
+          }
+        </div>
+        <div className={styles.mobileFilter}>
+          <ModeDropDown />
+          <FilterDropDown />
+        </div>
+        <Pagination />
+        <div className={styles.mobileMain} >
+          <div className={styles.contentbox}>
+            {data.map((each, index) => <ThumbMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+          </div>
+        </div>
       </div>
     </div>
   )

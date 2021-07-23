@@ -37,3 +37,59 @@
     margin: 20px 0;
     width: 80%;
 }
+
+.desktopView {
+    width: 100%;
+    display: flex;
+    height: 100%;
+}
+
+.mobileView {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .desktopView {
+        display: none;
+    }
+
+    .mobileView {
+        display: block;
+        width: 100%;
+    }
+
+    .mobileFilter {
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .mobileMain {
+        margin: 10px 0;
+    }
+
+    .optionMenu {
+        border-radius: 5px;
+        -webkit-box-shadow: 1px 2px 4px -1px #999;
+        -moz-box-shadow: 1px 2px 4px -1px #999;
+        box-shadow: 1px 2px 4px -1px #999;
+        background-color: #eee;
+        width: 95%;
+    }
+
+    .options {
+        width:  fit-content;
+        margin: 20px;
+        width: fit-content;
+    }
+
+    .optionHeading {
+        color: #00e;
+        padding: 5px;
+    }
+
+    .optionsNotOpen {
+        width: fit-content;
+        position: absolute;
+    }
+}

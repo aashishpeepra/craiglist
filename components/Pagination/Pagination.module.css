@@ -37,3 +37,9 @@
 .disable {
     color: #ddd;
 }
+
+@media screen and (max-width: 480px) { 
+    .pagination {
+        margin: 0 auto;
+    }
+}
