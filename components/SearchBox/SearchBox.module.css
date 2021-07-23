@@ -36,3 +36,10 @@
     margin: auto;
     margin-top: 25%;
 }
+
+@media screen and (max-width: 480px) {
+    .querybox {
+        justify-content: center;
+        margin: 5px 0;
+    }
+}

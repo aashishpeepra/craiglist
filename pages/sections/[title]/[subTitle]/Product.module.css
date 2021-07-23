@@ -131,3 +131,55 @@ width: 30%;
     font-size: 14px;
     margin: 1rem 0;
 }
+
+@media screen and (max-width: 480px) {
+    .productAction span {
+        display: none;
+    }
+
+    .time {
+        display: none;
+    }
+
+    .productDetails {
+        flex-direction: column;
+    }
+
+    .BlockOne {
+        width: 100%;
+    } 
+    
+    .BlockTwo {
+        width: 100%;
+    }
+        
+    .productBox {
+        padding: 3rem 0.75rem;
+    }
+
+    .maps {
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 5px;
+    }
+
+    .productDetailsFooter {
+        width: 100%;
+    }
+
+    .star, .hide, .flag {
+        transform: scale(1.6); 
+    }
+
+    .productAction {
+        width: 90%;
+    }
+}

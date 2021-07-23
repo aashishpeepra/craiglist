@@ -4,6 +4,10 @@
     justify-content: space-between;
 }
 
+.CenterBox {
+    width: 100%;
+}
+
 .col1 {
     width: 33%;
     height: 100%;
@@ -17,4 +21,14 @@
 .col3 {
     width: 22%;
     height: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .mainCenter {
+        display: none;
+    }
+
+    .mobileCenter {
+        width: 100%;
+    }
 }

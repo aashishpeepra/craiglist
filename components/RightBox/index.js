@@ -1,4 +1,5 @@
 import styles from './RightBox.module.css';
+import MobileDropDown from '../MobileDropDown';
 import Link from 'next/link';
 
 const cities = [
@@ -34,10 +35,15 @@ const cities = [
 
 const RightBox = () => {
     return (
-        <div className={styles.rightBar}>
-            <h5 className={styles.nearby}>nearby cl</h5>
-            {cities.map((value, index) => <Link key={index} href="/">{value}</Link> )}
-        </div>
+        <>
+            <div className={styles.rightBar}>
+                <h5 className={styles.nearby}>nearby cl</h5>
+                {cities.map((value, index) => <Link key={index} href="/">{value}</Link>)}
+            </div>
+            <div className={styles.mobileRightBar}>
+                <MobileDropDown listHeading="nearby cl" list={cities} />
+            </div>
+        </>
     )
 }
 

@@ -28,3 +28,22 @@
     background-color: #eee;
     margin: 0 2px;
 }
+
+@media screen and (max-width: 480px) {
+
+    .mobileRightBar {
+        width: 100%;
+    }
+
+    .rightBar {
+        display: none;
+    }
+    
+    .mobileRightBar div {
+        font-size: 85%;
+    }
+
+    .mobileRightBar div {
+        text-align: center;
+    }
+}
