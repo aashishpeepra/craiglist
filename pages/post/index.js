@@ -137,14 +137,26 @@ export default function PostPage() {
   };
   return (
     <section id="post-section" className={styles.post}>
-      {/* {chooseForm(
-        current,
+      {chooseForm(
+        "subarea",
         state,
         (e) => {checkBoxChange(e,state,setState)},
         () => setCurrent("type")
-      )} */}
-      {/* <LargeField/> */}
-      {/* <Unpushlished/> */}
+      )}
+      {chooseForm(
+        "type",
+        state,
+        (e) => {checkBoxChange(e,state,setState)},
+        () => setCurrent("type")
+      )}
+      {chooseForm(
+        "cat",
+        state,
+        (e) => {checkBoxChange(e,state,setState)},
+        () => setCurrent("type")
+      )}
+      <LargeField/>
+      <Unpushlished/>
       <EmailUpdates/>
     </section>
   );
