@@ -71,11 +71,11 @@ const Product = () => {
             </div>
           </div>
           <div className={styles.Data}>
-            Big service share house seeking for students and young professional. It's right down from South Seattle College in West Seattle. Only 10 mins walk to SSC or 20 mins bus to downtown. All rooms furnished. All utilities, high speed internet and cleaning service included.
+            Big service share house seeking for students and young professional. It&apos;s right down from South Seattle College in West Seattle. Only 10 mins walk to SSC or 20 mins bus to downtown. All rooms furnished. All utilities, high speed internet and cleaning service included.
             No smoking. No pet.
             <br />
             <br />
-            1 room for $695/mo. First & last month with $400 deposit to move in .
+            1 room for $695/mo. First &amp; last month with $400 deposit to move in .
             Available by September 1st.
             <br />
             <br/>
