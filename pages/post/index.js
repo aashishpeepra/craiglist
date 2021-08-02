@@ -5,6 +5,20 @@ import * as categories from "../../constants/constants";
 import LargeField from "../../components/post/largeField/largeField";
 import Unpushlished from "../../components/post/unpublished/unpublished";
 import EmailUpdates from "../../components/post/emailUpdate/emailUpdate";
+import Basic from "../../components/forms/basic";
+import HouseSwap from "../../components/forms/housing/swap";
+import HouseCommercial from "../../components/forms/housing/commercial";
+import HouseRealEstate from "../../components/forms/housing/realEstate";
+import HouseWantedApt from "../../components/forms/housing/wantedApt";
+import HouseRoomsAndShare from "../../components/forms/housing/roomsAndShare";
+import RoomsAndShare from "../../components/forms/housing/roomsAndShare";
+import HouseWantedReal from "../../components/forms/housing/wantedReal";
+import Jobs from "../../components/forms/jobs";
+import Legal from "../../components/forms/legal";
+import JobWanted from "../../components/forms/jobWanted";
+import Gig from "../../components/forms/gig";
+
+
 function jobForm(value,onChange,nextClick,price){
   return (
     <div className={styles.fieldContainer}>
@@ -155,6 +169,17 @@ export default function PostPage() {
         (e) => {checkBoxChange(e,state,setState)},
         () => setCurrent("type")
       )}
+      <Basic/>
+      <HouseSwap/>
+      <HouseCommercial/>
+      <HouseRealEstate/>
+      <HouseWantedApt/>
+      <RoomsAndShare/>
+      <HouseWantedReal/>
+      <Jobs/>
+      <Legal/>
+      <JobWanted/>
+      <Gig/>
       <LargeField/>
       <Unpushlished/>
       <EmailUpdates/>
