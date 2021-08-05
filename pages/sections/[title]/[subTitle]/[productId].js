@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from './Product.module.css';
+import Tag from "../../../../components/ui/tag/tag";
 
 const tags = [
   'furnished',
@@ -87,7 +88,7 @@ const Product = () => {
           <div className={styles.maps}>
           </div>
           <div className={styles.tags}>
-            {tags.map((value, index) => <div key={index} className={styles.tag}>{value}</div>)}
+            {tags.map((value, index) => <Tag key={value} title={value}/>)}
           </div>
         </div>
 

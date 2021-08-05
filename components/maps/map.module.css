@@ -1,0 +1,11 @@
+.Map{
+    height:40vh;
+    width:50vw;
+    min-width: 400px;;
+}
+.Map h1{
+    margin-bottom: 1rem;
+}
+.Map_button{
+    margin-top: 1rem;
+}
