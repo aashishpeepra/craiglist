@@ -1,5 +1,5 @@
 import styles from "./forms.module.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Button from "../ui/Button/button";
 
 function InputField({
@@ -29,7 +29,7 @@ function InputField({
   );
 }
 
-export default function Jobs() {
+export default function Jobs({getData,preFilled}) {
   const [hasNumber, setHasNumber] = useState(false);
   const [hasLocation, setHasLocation] = useState(false);
   const [title, setTitle] = useState("");
@@ -43,6 +43,38 @@ export default function Jobs() {
   const [email, setEmail] = useState("");
   const [employmentType, setEmploymentType] = useState("");
   const [propertise, setPropertise] = useState([]);
+  useEffect(() => {
+    if(preFilled && preFilled.title){
+      console.log("executed");
+      let functions = {
+        title:setTitle,
+        city:setCity,
+        description:setDesc,
+        pincode:setPincode,
+        reachEmail:setReachEmail,
+        phone:setPhone,
+        hasNumber:setHasNumber,
+        hasLocation:setHasLocation,
+        email:setEmail,
+        product:(product)=>{
+          setEmploymentType(product.employmentType);
+          setPropertise(product.propertise)
+        },
+        location:setLocation
+      }
+      Object.keys(preFilled).map(key=>{
+       
+        console.log(key);
+        let currentFunction = functions[key];
+        console.log(currentFunction)
+        if(currentFunction)
+          currentFunction(preFilled[key])
+        
+      })
+    }
+    
+  }, [preFilled])
+  
   const handleSelect = (e, state, setState) => {
     if (state.includes(e.target.value))
       setState(propertise.filter((each) => each != e.target.value));
@@ -78,13 +110,14 @@ export default function Jobs() {
       reachEmail,
       phone,
       location,
-      reachEmail,
+      email,
       product: {
         employmentType,
         propertise,
       },
     };
     console.log(postDetails);
+    getData(postDetails)
   };
 
   return (
@@ -167,11 +200,11 @@ export default function Jobs() {
               return (
                 <div
                   className={styles.checkbox}
-                  defaultChecked={propertise.includes(each)}
+                  
                   onChange={(e) => handleSelect(e, propertise, setPropertise)}
                   key={each}
                 >
-                  <input type="checkbox" name="propertise" value={each} />
+                  <input type="checkbox" checked={propertise.includes(each)} name="propertise" value={each} />
                   <label>{each}</label>
                 </div>
               );
@@ -210,7 +243,7 @@ export default function Jobs() {
             <div className={styles.checkbox}>
               <input
                 type="checkbox"
-                defaultChecked={hasNumber}
+                checked={hasNumber}
                 onChange={() => setHasNumber((prev) => !prev)}
               />
               <label>show my phone number</label>
@@ -232,7 +265,8 @@ export default function Jobs() {
           <div className={styles.checkbox}>
             <input
               type="checkbox"
-              defaultChecked={hasLocation}
+            
+              checked={hasLocation}
               onChange={() => setHasLocation((prev) => !prev)}
             />
             <label>show address</label>

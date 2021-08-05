@@ -17,6 +17,7 @@ import Jobs from "../../components/forms/jobs";
 import Legal from "../../components/forms/legal";
 import JobWanted from "../../components/forms/jobWanted";
 import Gig from "../../components/forms/gig";
+import MapPicker from "../../components/maps/app";
 
 function jobForm(value, onChange, nextClick, price) {
   return (
@@ -337,6 +338,8 @@ export default function PostPage() {
   const [jobResume, setJobResume] = useState("");
   const [jobAdvertise, setJobAdvertise] = useState("");
   const [houseType, setHouseType] = useState("");
+  const [formData,setFormData] = useState({});
+  const [mapData,setMapData] = useState({});
   const goToNext = () => {
     let valueCurrent = [location, type, jobs, gigType][index];
     if (!valueCurrent && index < 3) {
@@ -344,8 +347,22 @@ export default function PostPage() {
       return;
     } else setIndex((prev) => prev + 1);
   };
+  const getData = (data)=>{
+    if(type==="job offered"){
+      setFormData({...data,category:["jobs"],subcategory:jobs});
+      goToNext();
+      return;
+    }
+    setFormData(data);
+    goToNext()
+  }
+  const getMapData = (data)=>{
+    setMapData(data);
+    goToNext()
+  }
   return (
     <section id="post-section" className={styles.post}>
+   
       {index === 0 &&
         chooseForm(
           "subarea",
@@ -402,7 +419,7 @@ export default function PostPage() {
       {index === 3 &&
         (function () {
           console.log(type, jobResume);
-          if (type === "job offered") return <Jobs />;
+          if (type === "job offered") return <Jobs preFilled={formData} getData={getData} />;
           if (
             type ===
             "gig offered (I'm hiring for a short-term, small or odd job)"
@@ -469,6 +486,7 @@ export default function PostPage() {
         })()}
       {index === 4 &&
         (function () {
+          if(type==="job offered") return <MapPicker onSubmitMap={getMapData} preLocation={mapData}/>
           if (
             type ===
             "gig offered (I'm hiring for a short-term, small or odd job)"
@@ -488,6 +506,16 @@ export default function PostPage() {
             }
           }
         })()}
+        {
+        
+          index===5 && (function(){
+            console.log(formData,mapData)
+            if(type==="job offered"){
+              return <Unpushlished goToPos={{edit:()=>setIndex(index-2),location:()=>setIndex(index-1)}} data={formData} map={mapData}/>
+            }
+          })()
+        }
+        
       {/* 
       
       
