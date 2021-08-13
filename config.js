@@ -10,7 +10,7 @@ const configs = {
 
     },
     production:{
-        api:"https://www.humit.xyz/api/"
+        api:"https://craiglist-backend.herokuapp.com/"
     }
 }[env];
 
