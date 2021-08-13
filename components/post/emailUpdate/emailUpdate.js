@@ -1,6 +1,6 @@
 import styles from "./emailUpdate.module.css";
 
-export default function EmailUpdates(){
+export default function EmailUpdates({email}){
     return (
         <div>
             <div className={styles.sect_bg}>
@@ -8,7 +8,7 @@ export default function EmailUpdates(){
                 <h4>You should receive an email shortly </h4> <span>with a link to log in to your craigslist account and publish your posting. </span>
             </div>
             <div className={styles.sect_bg}>
-                Email sent to : <span className={styles.sect_bg_email}>aashishpeepra@urlefy.com</span>
+                Email sent to : <span className={styles.sect_bg_email}>{email}</span>
             </div>
             <div className={styles.sect_bg}>
                 <h4>The link will expire in 30 minutes.</h4><br/><br/>

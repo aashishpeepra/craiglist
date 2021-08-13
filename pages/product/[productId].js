@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import styles from './Product.module.css';
-import Tag from "../../../../components/ui/tag/tag";
-
+import Tag from '../../components/ui/tag/tag';
+import MapConstant from "../../components/mapConstant/app";
+import get_post from '../../functions/getPost';
 const tags = [
   'furnished',
   'house',
@@ -12,9 +12,7 @@ const tags = [
   'private room'
 ]
 
-const Product = () => {
-  const router = useRouter()
-  const { title, subTitle, productId } = router.query
+const Product = ({data}) => {
 
   return (
     <div className={styles.productBox}>
@@ -37,8 +35,8 @@ const Product = () => {
           <div className={styles.time}>Posted a day ago</div>
         </div>
         <div className={styles.productTitle}>
-          $695 Big Share House near SSC
-          (<span className={styles.titleArea} >West Seattle</span>)
+          {data.title}
+          (<span className={styles.titleArea} >{data.city}</span>)
         </div>
       </div>
 
@@ -47,9 +45,10 @@ const Product = () => {
         <div className={styles.BlockOne}>
           <div className={styles.Img}>
             <div className={styles.mainImg} >
-              <img src='https://source.unsplash.com/featured/?{food}' />
+              <img src={data.images.length > 0 ? data.images[0] : 'https://source.unsplash.com/featured/?{food}'} />
             </div>
             <div className={styles.otherImg}>
+              {/* <img src='https://source.unsplash.com/featured/?{food}' />
               <img src='https://source.unsplash.com/featured/?{food}' />
               <img src='https://source.unsplash.com/featured/?{food}' />
               <img src='https://source.unsplash.com/featured/?{food}' />
@@ -67,28 +66,20 @@ const Product = () => {
               <img src='https://source.unsplash.com/featured/?{food}' />
               <img src='https://source.unsplash.com/featured/?{food}' />
               <img src='https://source.unsplash.com/featured/?{food}' />
-              <img src='https://source.unsplash.com/featured/?{food}' />
-              <img src='https://source.unsplash.com/featured/?{food}' />
+              <img src='https://source.unsplash.com/featured/?{food}' /> */}
             </div>
           </div>
           <div className={styles.Data}>
-            Big service share house seeking for students and young professional. It&apos;s right down from South Seattle College in West Seattle. Only 10 mins walk to SSC or 20 mins bus to downtown. All rooms furnished. All utilities, high speed internet and cleaning service included.
-            No smoking. No pet.
-            <br />
-            <br />
-            1 room for $695/mo. First &amp; last month with $400 deposit to move in .
-            Available by September 1st.
-            <br />
-            <br/>
-            Please call to make appointment to view.
+           {data.description}
           </div>
         </div>
 
         <div className={styles.BlockTwo}>
           <div className={styles.maps}>
+              <MapConstant lat={data.coords.latitude} long={data.coords.longitude}/>
           </div>
           <div className={styles.tags}>
-            {tags.map((value, index) => <Tag key={value} title={value}/>)}
+            {(data.product && data.product.propertise) && data.product.propertise.map(each=><Tag key={each} title={each}/>)}
           </div>
         </div>
 
@@ -101,7 +92,7 @@ const Product = () => {
           </ul>
         </div>
         <div className={styles.productDetailsFooter}>
-          <div>post id: 7353806357</div> 
+          <div>post id: {data._id}</div> 
           <div>posted: a day ago</div>
         </div>
       </div>
@@ -111,3 +102,31 @@ const Product = () => {
 }
 
 export default Product
+
+export async function getServerSideProps(context) {
+    console.log(context.params);
+    if(!context.params.productId){
+        return {
+            redirect:{
+                destination:"/",
+                permanent:false
+            }
+        }
+    }
+    let result;
+    try{
+        result = await get_post(context.params.productId);
+    }catch(err){
+        console.error(err);
+        return {
+            redirect:{
+                destination:"/",
+                permanent:false
+            }
+        }
+    }
+    console.log(result.data)
+    return {
+      props: {data:result.data}, // will be passed to the page component as props
+    }
+  }

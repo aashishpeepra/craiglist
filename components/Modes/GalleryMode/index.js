@@ -11,15 +11,15 @@ const GalleryMode = ({ fav, date, title, price, place, pic, picUrl,section,subse
                 <div className={styles.star}>{fav ? '★' : '☆'}</div>
                 <div className={styles.date}>{date}</div>
                 <div className={styles.title}>
-                    <Link href={`/section/${section}/${subsection}/${id}`}>
+                    <Link href={`/product/${id}`}>
                         <a>
                             {title}
                         </a>
                     </Link>
                 </div>
-                <div className={styles.price}>${price}</div>
+                {price && <div className={styles.price}>${price}</div>}
                 <div className={styles.place}>({place})</div>
-                <div className={styles.bin}>🗑</div>
+                {/* <div className={styles.bin}>🗑</div> */}
             </div>
         </div>
     )
