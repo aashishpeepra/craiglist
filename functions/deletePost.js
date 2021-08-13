@@ -4,7 +4,7 @@ import config from "../config";
 export default async function deletePost(id, deleteCode,email) {
   let response;
 
-  response = await axios.delete(encodeURI(config.api + `api/v1/posts/delete-post?id=${id}&deleteCode=${deleteCode}&email=${email}`));
+  response = await axios.delete(config.api + `api/v1/posts/delete-post?id=${id}&deleteCode=${deleteCode}&email=${email}`);
   let { data } = await response;
   return data;
 }

@@ -4,7 +4,7 @@ import format_date from "../utils/formatter";
 
 export default async function get_feed(category,subCategory){
     let response ;
-    console.log(category,subCategory,subCategory.indexOf("-"))
+    
     if(subCategory && subCategory.indexOf("-")!=-1){
         subCategory =  subCategory.replace("-","+")
     }
