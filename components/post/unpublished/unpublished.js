@@ -2,8 +2,13 @@ import styles from "./unpublished.module.css";
 import Button from "../../ui/Button/button";
 import MapConstant from "../../mapConstant/app";
 import Tag from "../../../components/ui/tag/tag";
-
+import submitPost from "../../../functions/submitPost";
+import {useRouter} from "next/router"
 export default function Unpushlished({data,map,goToPos}) {
+  const router = useRouter();
+
+  
+
   return (
     <div className={styles.preview} id="preview">
       <section className={styles.preview_desc} id="description">
@@ -12,7 +17,7 @@ export default function Unpushlished({data,map,goToPos}) {
           <span>Price</span>
         </div>
 
-        {data.subcategory && data.subcategory.map((each) => {
+        {data.subCategory && data.subCategory.map((each) => {
           return (
             <div key={each} className={styles.preview_desc_each}>
               <p>{ "seattle>"+data.category+">"+ each}</p>
@@ -22,7 +27,7 @@ export default function Unpushlished({data,map,goToPos}) {
         })}
         <div className={styles.preview_desc_final}>
           <p>Total amount charged:</p>
-          <span>${data.subcategory ? data.subcategory.length*45 : 45} USD</span>
+          <span>${data.subCategory ? data.subCategory.length*45 : 45} USD</span>
         </div>
       </section>
       <section className={styles.preview_info}>
@@ -73,7 +78,14 @@ export default function Unpushlished({data,map,goToPos}) {
         </ul> */}
       </div>
       <div className={styles.preview_button}>
-        <Button text="publish" onClick={() => {}} />
+        <Button text="publish" onClick={() => {
+          submitPost(map,data).then(data=>{
+            console.log(data);
+            router.push(`/finalize?email=${data.data.email}`)
+          }).catch(err=>{
+            console.log(err)
+          })
+        }} />
       </div>
     </div>
   );

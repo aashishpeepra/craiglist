@@ -349,7 +349,7 @@ export default function PostPage() {
   };
   const getData = (data)=>{
     if(type==="job offered"){
-      setFormData({...data,category:["jobs"],subcategory:jobs});
+      setFormData({...data,category:["jobs"],subCategory:jobs});
       goToNext();
       return;
     }

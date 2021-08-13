@@ -16,6 +16,8 @@ import GalleryMode from '../../../components/Modes/GalleryMode'
 import ThumbMode from '../../../components/Modes/ThumbMode'
 import Link from 'next/link'
 import { useState } from 'react'
+import get_feed from '../../../functions/getPosts';
+
 
 const getSideBar = (value) => {
   if (value === 'community') return <Community />
@@ -28,118 +30,8 @@ const getSideBar = (value) => {
   if (value === 'resumes') return <Resumes />
 }
 
-const data = [
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{colors}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{house}"
-  },
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{smile}"
-  },
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{flowers}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{people}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{place}"
-  },
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{landscape}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{future}"
-  },
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{food}"
-  },
-  {
-    "fav": false,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{nature}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{music}"
-  },
-  {
-    "fav": true,
-    "date": "Jun 25",
-    "title": "Big Share House near SSC",
-    "price": "987",
-    "place": "West Seattle",
-    "pic": true,
-    "picUrl": "https://source.unsplash.com/featured/?{japan}"
-  }
-]
 
-const Post = () => {
+const Post = ({data}) => {
   const router = useRouter()
   const { title } = router.query
 
@@ -162,7 +54,7 @@ const Post = () => {
 
 
         <div className={styles.Maincontent}>
-          {data.map((each, index) => <GalleryMode section={"jobs"} subsection={""} id="1234567" key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+          {data.map((each, index) => <GalleryMode section={"jobs"} subsection={""} id={each._id} key={index} fav={each.fav} date={each.formattedDate} title={each.title} price={each.product.price} place={each.city+" "+each.pincode} pic={true} picUrl={each.images.length>0 ? each.images[0] : "https://source.unsplash.com/featured/?{japan}"} />)}
         </div>
 {/* 
         <div className={styles.contentbox}>
@@ -204,3 +96,20 @@ const Post = () => {
 }
 
 export default Post
+
+export async function getServerSideProps(context) {
+  console.log(context.params);
+  let data;
+  try{
+    data = await get_feed(context.params.title,context.params.subTitle)
+  }catch(err){
+    console.error(err);
+    return {
+      props:{data:[]}
+    }
+  }
+  console.log(data)
+  return {
+    props: {data:data.data}, // will be passed to the page component as props
+  }
+}

@@ -9,7 +9,10 @@ import Jobs from '../../../../components/SideMenus/Jobs'
 import Gigs from '../../../../components/SideMenus/Gigs'
 import ListMode from '../../../../components/Modes/ListMode'
 import GalleryMode from '../../../../components/Modes/GalleryMode'
-import ThumbMode from '../../../../components/Modes/ThumbMode'
+import ThumbMode from '../../../../components/Modes/ThumbMode';
+
+import get_feed from '../../../../functions/getPosts'
+
 const getSideBar = (value, subValue) => {
   if (value === 'community') return <Community subTitle={subValue} />
   if (value === 'services') return <Services subTitle={subValue} />
@@ -139,11 +142,28 @@ const Comment = () => {
       <div className={styles.sidebar}>{getSideBar(title, subTitle)}</div>
       <div className={styles.titleMain}>
       <div className={styles.Maincontent}>
-          {data.map((each, index) => <GalleryMode key={index} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
+          {data.map((each, index) => <GalleryMode key={index} id={each._id} fav={each.fav} date={each.date} title={each.title} price={each.price} place={each.place} pic={each.pic} picUrl={each.picUrl} />)}
         </div>
       </div>
     </div>
   )
 }
 
-export default Comment
+export default Comment;
+
+export async function getServerSideProps(context) {
+  console.log(context.params);
+  let data;
+  try{
+    data = await get_feed(context.params.title,context.params.subTitle)
+  }catch(err){
+    console.error(err);
+    return {
+      props:{data:[]}
+    }
+  }
+  console.log(data)
+  return {
+    props: {data}, // will be passed to the page component as props
+  }
+}
