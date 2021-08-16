@@ -4,6 +4,7 @@
 
 .mobilePageContainer {
   display: none;
+  width: 100%;
 }
 
 .desktopPageContainer{
@@ -13,12 +14,13 @@
   min-height: 100%;
   display: flex;
 }
+
 .footer{
-  
-  bottom:0;
   position: absolute;
-  width: 99vw;
+  width: 100%;
+  padding: 8px 0;
 }
+
 .clfooter {
   
   list-style: none;
@@ -35,7 +37,6 @@ footer .clfooter li {
   line-height: 1.5em;
   min-height: 1.1em;
   background: #eee;
-  padding: 5px;
   display: flex;
   justify-content: center;
 }
@@ -93,8 +94,8 @@ footer .clfooter li {
     display: block;
   }
 
-}
+  .mobileFotter {
+    bottom: 0;
+  }
 
-.mobilePageContainer {
-  width: 100%;
 }

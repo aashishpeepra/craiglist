@@ -6,6 +6,7 @@
 
 .CenterBox {
     width: 100%;
+    display: block;
 }
 
 .col1 {
@@ -23,6 +24,10 @@
     height: 100%;
 }
 
+.mobileCenter {
+    display: none;
+}
+
 @media screen and (max-width: 480px) {
     .mainCenter {
         display: none;
@@ -30,5 +35,6 @@
 
     .mobileCenter {
         width: 100%;
+        display: block;
     }
 }

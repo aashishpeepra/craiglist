@@ -15,9 +15,6 @@ export default function Home() {
         <div className={styles.right}><RightBox /></div>
       </section>
 
-      <footer className={styles.footer}>
-
-
       <section className={styles.mobilePageContainer}>
         <Header />
         <SearchBox />
@@ -25,8 +22,7 @@ export default function Home() {
         <RightBox />
       </section>
 
-     
-
+      <footer className={styles.footer + ' ' + styles.mobileFotter}>
         <ul className={styles.clfooter}>
           <li>© 2021 <span className={styles.desktop}>craigslist</span><span className={styles.mobile}>CL</span></li>
           <li><Link href="/">help</Link></li>
