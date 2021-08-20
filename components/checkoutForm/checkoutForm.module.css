@@ -1,0 +1,22 @@
+.checkout_form{
+    width: 500px;
+}
+.checkout_form button{
+    width: 500px;
+    border: 1px solid green;
+    padding:0.5rem 0rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+.checkout_form button:hover{
+    background-color: green;
+    color: #fff;;
+}
+.card_error{
+    font-size: 1rem;
+    color:red;
+}
