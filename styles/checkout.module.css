@@ -1,0 +1,16 @@
+.checkout{
+    display: block;
+}
+.checkout_info h1, .checkout_info h3, .checkout_info p{
+    margin: 0.5rem 0rem;
+}
+.checkout_info{
+    margin-bottom: 2rem;
+}
+.checkout_info h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.checkout_info b{
+    font-weight: bold;
+}
